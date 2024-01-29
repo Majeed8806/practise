@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
-  namespace: cloudchamp
+  
   labels:
     role: api
     env: demo
@@ -25,7 +25,7 @@ spec:
       - name: api
         image: cloudacademydevops/api:v3
         imagePullPolicy: Always
-        env:
+     /* env:
           - name: MONGO_CONN_STR
             value: mongodb://mongo-0.mongo,mongo-1.mongo,mongo-2.mongo:27017/langdb?replicaSet=rs0
           - name: MONGO_USERNAME
@@ -37,7 +37,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: mongodb-secret
-                key: password
+                key: password  /*
         ports:
         - containerPort: 8080
         livenessProbe:
